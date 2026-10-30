@@ -67,3 +67,30 @@ export interface SiteConfig {
     facebook?: string;
   };
 }
+
+export type WakafCategory = 
+  | 'Wakaf Pembebasan Lahan'
+  | 'Wakaf Pembangunan Gedung'
+  | "Wakaf Al-Qur'an & Mushaf"
+  | 'Wakaf Produktif & Sarpras'
+  | 'Wakaf Operasional Pendidikan';
+
+export type WakafStatus = 'active' | 'completed';
+
+export interface WakafProgram {
+  id: string;
+  title: string;
+  slug: string;
+  category: WakafCategory | string;
+  short_desc: string;
+  full_desc: string;
+  flyer_image: string;
+  target_amount: number;
+  collected_amount: number;
+  donaturs_count: number;
+  bank_name: string;
+  bank_account: string;
+  bank_holder: string;
+  status: WakafStatus;
+  created_at: string;
+}

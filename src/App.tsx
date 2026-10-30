@@ -11,6 +11,7 @@ import { ServicesPage } from './pages/public/ServicesPage';
 import { NewsPage } from './pages/public/NewsPage';
 import { NewsDetailPage } from './pages/public/NewsDetailPage';
 import { ContactPage } from './pages/public/ContactPage';
+import { WakafPage } from './pages/public/WakafPage';
 import { AdminEntryPage } from './pages/admin/AdminEntryPage';
 
 export default function App() {
@@ -27,6 +28,7 @@ export default function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/tentang" element={<AboutPage />} />
               <Route path="/layanan" element={<ServicesPage />} />
+              <Route path="/wakaf" element={<WakafPage />} />
               <Route path="/berita" element={<NewsPage />} />
               <Route path="/berita/:slug" element={<NewsDetailPage />} />
               <Route path="/kontak" element={<ContactPage />} />

@@ -1,4 +1,4 @@
-import type { Post, ServiceItem, Inquiry, SiteConfig, UserProfile } from '../types';
+import type { Post, ServiceItem, Inquiry, SiteConfig, UserProfile, WakafProgram } from '../types';
 import sample1 from '../assets/sample_image_1.jpeg';
 import sample2 from '../assets/sample_image_2.jpeg';
 import sample3 from '../assets/sample_image_3.jpeg';
@@ -238,5 +238,76 @@ export const initialInquiries: Inquiry[] = [
     message: "Assalamu'alaikum ustadz, kami ingin mengadakan bimbingan tahsin Al-Qur'an rutin setiap hari Jumat di masjid kantor kami. Mohon info skema dan ketersediaan asatidz pembina.",
     status: 'resolved',
     created_at: '2026-03-19T14:40:00Z'
+  }
+];
+
+export const initialWakafPrograms: WakafProgram[] = [
+  {
+    id: 'wkf-1',
+    title: "Wakaf Pembebasan Lahan 2.500 m² Pesantren Tahfidz Putri GMQ",
+    slug: 'pembebasan-lahan-pesantren-putri',
+    category: 'Wakaf Pembebasan Lahan',
+    short_desc: "Pembebasan tanah perluasan asrama dan ruang halaqah Al-Qur'an santriwati Ma'had Tahfidz GMQ Bekasi Timur.",
+    full_desc: "Alhamdulillah, seiring meningkatnya animo masyarakat menitipkan putri mereka untuk menghafal Kitabullah, Yayasan Griya Mahir Al-Qur'an menginisiasi pembebasan lahan seluas 2.500 m² yang berlokasi tepat berdampingan dengan kampus utama. Lahan ini akan digunakan untuk pembangunan asrama santriwati 3 lantai, perpustakaan Al-Qur'an, dan aula serbaguna tahfizh.\n\nSetiap jengkal tanah yang dibebaskan akan menjadi tempat sujud dan lantunan ayat suci Al-Qur'an 24 jam sehari tanpa henti. Insya Allah pahala jariyahnya akan terus mengalir abadi kepada para wakif hingga hari akhirat.",
+    flyer_image: sample1,
+    target_amount: 1250000000,
+    collected_amount: 875000000,
+    donaturs_count: 482,
+    bank_name: 'Bank Syariah Indonesia (BSI)',
+    bank_account: '7188 9900 12',
+    bank_holder: 'Yayasan Griya Mahir Al-Qur\'an (Wakaf)',
+    status: 'active',
+    created_at: '2026-01-15T08:00:00Z'
+  },
+  {
+    id: 'wkf-2',
+    title: "Wakaf Pembangunan Gedung Asrama & Aula Halaqah 3 Lantai",
+    slug: 'pembangunan-gedung-asrama-aula',
+    category: 'Wakaf Pembangunan Gedung',
+    short_desc: "Pembangunan fisik gedung asrama modern yang asri dan representatif untuk 150 santri tahfidz 30 juz.",
+    full_desc: "Pembangunan fisik Gedung Asrama dan Aula Halaqah Tahfidz telah memasuki tahap pengerjaan struktur lantai 2. Fasilitas ini dirancang ramah lingkungan, sirkulasi udara optimal untuk kesehatan hafalan santri, serta dilengkapi sarana sanitasi berstandar bersih dan higienis.\n\nKebutuhan material mencakup struktur beton bertulang, dinding bata ringan, lantai keramik, hingga instalasi kelistrikan ramah hemat energi. Dukungan wakaf material maupun wakaf tunai sangat dibutuhkan demi kelancaran penyelesaian gedung tepat waktu.",
+    flyer_image: sample2,
+    target_amount: 850000000,
+    collected_amount: 520000000,
+    donaturs_count: 315,
+    bank_name: 'Bank Syariah Indonesia (BSI)',
+    bank_account: '7188 9900 12',
+    bank_holder: 'Yayasan Griya Mahir Al-Qur\'an (Wakaf)',
+    status: 'active',
+    created_at: '2026-02-01T09:00:00Z'
+  },
+  {
+    id: 'wkf-3',
+    title: "Wakaf 1.000 Mushaf Al-Qur'an Standar Hafalan & Tafsir Ringkas",
+    slug: 'wakaf-1000-mushaf-alquran-hafalan',
+    category: 'Wakaf Al-Qur\'an & Mushaf',
+    short_desc: "Pengadaan dan distribusi mushaf Al-Qur'an pojok 15 baris rasm Utsmani untuk santri binaan dan majelis taklim pelosok.",
+    full_desc: "Program wakaf pengadaan 1.000 mushaf Al-Qur'an standar cetakan Timur Tengah dengan kertas QPP khusus yang nyaman dibaca dan tidak silau di mata. Mushaf ini dibagikan secara gratis kepada seluruh santri baru Kuttab, Ma'had Boarding GMQ, serta didistribusikan ke mushalla binaan di wilayah rawan dakwah.\n\nSetiap huruf yang dibaca, dihafal, dan diulang-ulang oleh ribuan santri insya Allah menghadirkan timbangan kebaikan berlipat ganda bagi para muhsinin dan wakif.",
+    flyer_image: sample3,
+    target_amount: 100000000,
+    collected_amount: 100000000,
+    donaturs_count: 240,
+    bank_name: 'Bank Syariah Indonesia (BSI)',
+    bank_account: '7188 9900 12',
+    bank_holder: 'Yayasan Griya Mahir Al-Qur\'an (Wakaf)',
+    status: 'completed',
+    created_at: '2026-01-05T08:00:00Z'
+  },
+  {
+    id: 'wkf-4',
+    title: "Wakaf Produktif Unit Depot Air Bersih & Sarpras Kemandirian Santri",
+    slug: 'wakaf-produktif-depot-air-sarpras',
+    category: 'Wakaf Produktif & Sarpras',
+    short_desc: "Pemberdayaan wakaf produktif yang menghasilkan surplus mandiri untuk membiayai beasiswa santri dhuafa dan yatim.",
+    full_desc: "Lembaga Wakaf GMQ mengembangkan program wakaf produktif berupa instalasi depot air minum hexagonal dan filterisasi higienis. Selain mencukupi kebutuhan konsumsi air minum sehat bagi 300+ santri dan asatidz yayasan setiap hari, surplus operasional depot air disalurkan 100% untuk subsidi SPP dan uang saku santri penghafal Al-Qur'an dari kalangan yatim dan dhuafa.\n\nInilah model wakaf berkelanjutan: pokok wakafnya tetap utuh terjaga, sementara manfaat dan labanya terus membiayai dakwah Al-Qur'an.",
+    flyer_image: sample4,
+    target_amount: 350000000,
+    collected_amount: 210000000,
+    donaturs_count: 168,
+    bank_name: 'Bank Syariah Indonesia (BSI)',
+    bank_account: '7188 9900 12',
+    bank_holder: 'Yayasan Griya Mahir Al-Qur\'an (Wakaf)',
+    status: 'active',
+    created_at: '2026-02-18T10:00:00Z'
   }
 ];

@@ -23,6 +23,7 @@ export const Navbar: React.FC = () => {
     { label: 'Beranda', path: '/' },
     { label: 'Tentang Yayasan', path: '/tentang' },
     { label: 'Unit Pendidikan', path: '/layanan' },
+    { label: 'Lembaga Wakaf', path: '/wakaf' },
     { label: 'Kabar & Agenda', path: '/berita' },
     { label: 'Kontak & Lokasi', path: '/kontak' },
   ];

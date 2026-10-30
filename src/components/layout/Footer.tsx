@@ -114,6 +114,11 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/wakaf" style={{ color: 'var(--color-gold)', fontWeight: 700, transition: 'color 0.2s' }}>
+                  Lembaga Wakaf GMQ (Wakaf Tunai & Aset)
+                </Link>
+              </li>
+              <li>
                 <Link to="/berita" style={{ color: '#c5e2be', transition: 'color 0.2s' }}>
                   Penerimaan Santri Baru (PSB)
                 </Link>

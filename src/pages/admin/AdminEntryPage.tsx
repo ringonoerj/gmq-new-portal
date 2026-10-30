@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  Lock, 
+  Lock,
+  HeartHandshake, 
   ShieldCheck, 
   UserCheck, 
   FileText, 
@@ -17,22 +18,25 @@ import {
 import { useAuth } from '../../context/AuthContext';
 import { usePosts } from '../../hooks/usePosts';
 import { useServices } from '../../hooks/useServices';
+import { useWakaf } from '../../hooks/useWakaf';
 import { useInquiries } from '../../hooks/useInquiries';
 import { useSiteConfig } from '../../hooks/useSiteConfig';
 
 import { AdminDashboardTab } from './AdminDashboardTab';
 import { AdminPostsTab } from './AdminPostsTab';
 import { AdminServicesTab } from './AdminServicesTab';
+import { AdminWakafTab } from './AdminWakafTab';
 import { AdminInquiriesTab } from './AdminInquiriesTab';
 import { AdminSettingsTab } from './AdminSettingsTab';
 import logoImg from '../../assets/Logo_YGMQ_Transparan.png';
 
-type AdminTab = 'dashboard' | 'posts' | 'services' | 'inquiries' | 'settings';
+type AdminTab = 'dashboard' | 'posts' | 'services' | 'wakaf' | 'inquiries' | 'settings';
 
 export const AdminEntryPage: React.FC = () => {
   const { user, isAuthenticated, login, loginAsDemo, logout, dataSourceMode } = useAuth();
   const { posts, addPost, editPost, removePost } = usePosts();
   const { services, addService, editService, removeService } = useServices();
+  const { wakafList, addWakaf, editWakaf, removeWakaf } = useWakaf();
   const { inquiries, newCount, changeStatus, removeInquiry } = useInquiries();
   const { config, updateConfig } = useSiteConfig();
 
@@ -44,6 +48,7 @@ export const AdminEntryPage: React.FC = () => {
   // Modals state passed to children if triggered from dashboard quick actions
   const [isPostModalOpen, setIsPostModalOpen] = useState(false);
   const [isServiceModalOpen, setIsServiceModalOpen] = useState(false);
+  const [isWakafModalOpen, setIsWakafModalOpen] = useState(false);
 
   const handleManualLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -258,6 +263,39 @@ export const AdminEntryPage: React.FC = () => {
                 </button>
 
                 <button
+                  onClick={() => setActiveTab('wakaf')}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    padding: '0.75rem 1rem',
+                    borderRadius: 'var(--radius-md)',
+                    border: 'none',
+                    background: activeTab === 'wakaf' ? 'var(--color-green)' : 'transparent',
+                    color: activeTab === 'wakaf' ? '#ffffff' : 'var(--text-main)',
+                    fontWeight: activeTab === 'wakaf' ? 700 : 500,
+                    fontSize: '0.875rem',
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                    transition: 'all var(--transition-fast)'
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+                    <HeartHandshake size={17} />
+                    <span>Lembaga Wakaf</span>
+                  </div>
+                  <span style={{ 
+                    fontSize: '0.7rem', 
+                    padding: '0.1rem 0.45rem', 
+                    borderRadius: 'var(--radius-full)', 
+                    background: activeTab === 'wakaf' ? 'rgba(255,255,255,0.25)' : '#e2e8f0', 
+                    color: activeTab === 'wakaf' ? '#ffffff' : 'var(--text-muted)' 
+                  }}>
+                    {wakafList.length}
+                  </span>
+                </button>
+
+                <button
                   onClick={() => setActiveTab('inquiries')}
                   style={{
                     display: 'flex',
@@ -356,7 +394,18 @@ export const AdminEntryPage: React.FC = () => {
                 />
               )}
 
-              {activeTab === 'services' && (
+                        {activeTab === 'wakaf' && (
+            <AdminWakafTab
+              wakafList={wakafList}
+              onAddWakaf={addWakaf}
+              onEditWakaf={editWakaf}
+              onRemoveWakaf={removeWakaf}
+              isModalOpen={isWakafModalOpen}
+              setIsModalOpen={setIsWakafModalOpen}
+            />
+          )}
+
+          {activeTab === 'services' && (
                 <AdminServicesTab
                   services={services}
                   onAddService={addService}

@@ -1,12 +1,13 @@
-import type { Post, ServiceItem, Inquiry, SiteConfig } from '../types';
-import { initialPosts, initialServices, initialInquiries, initialSiteConfig } from '../data/mockData';
+import type { Post, ServiceItem, Inquiry, SiteConfig, WakafProgram } from '../types';
+import { initialPosts, initialServices, initialInquiries, initialSiteConfig, initialWakafPrograms } from '../data/mockData';
 import { supabase, isSupabaseConfigured } from './supabase';
 
 const STORAGE_KEYS = {
   POSTS: 'gmq_portal_posts_v3',
   SERVICES: 'gmq_portal_services_v3',
   INQUIRIES: 'gmq_portal_inquiries_v2',
-  CONFIG: 'gmq_portal_config_v2'
+  CONFIG: 'gmq_portal_config_v2',
+  WAKAF: 'gmq_portal_wakaf_v1'
 };
 
 // Helper untuk membaca dari localStorage atau inisialisasi dengan mock data awal
@@ -243,5 +244,96 @@ export const siteConfigApi = {
     const updated = { ...current, ...updates };
     setLocalItem(STORAGE_KEYS.CONFIG, updated);
     return updated;
+  }
+};
+
+// ============================================================================
+// WAKAF PROGRAMS ADAPTER
+// ============================================================================
+export const wakafApi = {
+  async getAll(): Promise<WakafProgram[]> {
+    if (isSupabaseConfigured && supabase) {
+      const { data, error } = await supabase
+        .from('wakaf_programs')
+        .select('*')
+        .order('created_at', { ascending: false });
+      if (error) {
+        console.warn('Supabase fetch wakaf error, fallback ke local:', error.message);
+        return getLocalItem<WakafProgram[]>(STORAGE_KEYS.WAKAF, initialWakafPrograms);
+      }
+      return data as WakafProgram[];
+    }
+    return getLocalItem<WakafProgram[]>(STORAGE_KEYS.WAKAF, initialWakafPrograms);
+  },
+
+  async getActive(): Promise<WakafProgram[]> {
+    const all = await this.getAll();
+    return all.filter((w) => w.status === 'active');
+  },
+
+  async getBySlug(slug: string): Promise<WakafProgram | null> {
+    const all = await this.getAll();
+    return all.find((w) => w.slug === slug) || null;
+  },
+
+  async create(item: Omit<WakafProgram, 'id' | 'created_at'>): Promise<WakafProgram> {
+    const newWakaf: WakafProgram = {
+      ...item,
+      id: 'wkf-' + Date.now(),
+      created_at: new Date().toISOString()
+    };
+
+    if (isSupabaseConfigured && supabase) {
+      const { data, error } = await supabase
+        .from('wakaf_programs')
+        .insert([newWakaf])
+        .select()
+        .single();
+      if (!error && data) {
+        return data as WakafProgram;
+      }
+    }
+
+    const current = getLocalItem<WakafProgram[]>(STORAGE_KEYS.WAKAF, initialWakafPrograms);
+    const updated = [newWakaf, ...current];
+    setLocalItem(STORAGE_KEYS.WAKAF, updated);
+    return newWakaf;
+  },
+
+  async update(id: string, updates: Partial<WakafProgram>): Promise<WakafProgram> {
+    if (isSupabaseConfigured && supabase) {
+      const { data, error } = await supabase
+        .from('wakaf_programs')
+        .update(updates)
+        .eq('id', id)
+        .select()
+        .single();
+      if (!error && data) {
+        return data as WakafProgram;
+      }
+    }
+
+    const current = getLocalItem<WakafProgram[]>(STORAGE_KEYS.WAKAF, initialWakafPrograms);
+    let targetWakaf: WakafProgram | null = null;
+    const updated = current.map((w) => {
+      if (w.id === id) {
+        targetWakaf = { ...w, ...updates };
+        return targetWakaf;
+      }
+      return w;
+    });
+
+    setLocalItem(STORAGE_KEYS.WAKAF, updated);
+    if (!targetWakaf) throw new Error('Program wakaf tidak ditemukan');
+    return targetWakaf;
+  },
+
+  async delete(id: string): Promise<void> {
+    if (isSupabaseConfigured && supabase) {
+      await supabase.from('wakaf_programs').delete().eq('id', id);
+    }
+    const current = getLocalItem<WakafProgram[]>(STORAGE_KEYS.WAKAF, initialWakafPrograms);
+    const updated = current.filter((w) => w.id !== id);
+    setLocalItem(STORAGE_KEYS.WAKAF, updated);
   }
 };
