@@ -6,9 +6,9 @@ import {
   Clock, 
   Send, 
   CheckCircle2, 
-  Sparkles,
-  MessageSquare,
-  Heart
+  Sparkles, 
+  MessageSquare, 
+  Heart 
 } from 'lucide-react';
 import { useSiteConfig } from '../../hooks/useSiteConfig';
 import { useInquiries } from '../../hooks/useInquiries';
@@ -45,21 +45,23 @@ export const ContactPage: React.FC = () => {
 
   return (
     <div>
-      {/* Header Banner */}
+      {/* Header Banner: Prestigious Emerald & Gold Gradient */}
       <section style={{ 
-        background: 'linear-gradient(135deg, #ffffff 0%, #f0f8ea 45%, #e1f2d3 100%)',
+        background: 'var(--gradient-green-hero)',
         color: 'var(--text-main)',
-        padding: '5rem 0 4rem',
-        borderBottom: '3.5px solid var(--color-green)'
+        padding: '5.5rem 0 4.5rem',
+        borderBottom: '4px solid var(--color-green)',
+        position: 'relative',
+        overflow: 'hidden'
       }}>
-        <div className="container">
-          <span className="badge badge-green" style={{ marginBottom: '1rem' }}>
-            <Sparkles size={13} color="var(--color-orange)" /> Layanan Umat & Informasi
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          <span className="badge badge-emerald" style={{ marginBottom: '1rem' }}>
+            <Sparkles size={13} color="var(--color-gold)" /> Layanan Umat & Informasi
           </span>
-          <h1 style={{ color: 'var(--color-blue)', fontSize: '2.65rem', marginBottom: '1rem', fontWeight: 800 }}>
+          <h1 style={{ color: 'var(--color-blue)', fontSize: '2.85rem', marginBottom: '1rem', fontWeight: 800 }}>
             Hubungi Yayasan Griya Mahir Al-Qur'an
           </h1>
-          <p style={{ color: 'var(--text-muted)', fontSize: '1.15rem', maxWidth: '780px', lineHeight: 1.7 }}>
+          <p style={{ color: 'var(--text-muted)', fontSize: '1.15rem', maxWidth: '780px', lineHeight: 1.75 }}>
             Sekretariat kami siap melayani pendaftaran santri baru, konsultasi bimbingan Al-Qur'an, kerja sama dakwah, maupun konfirmasi infaq dan wakaf.
           </p>
         </div>
@@ -72,8 +74,8 @@ export const ContactPage: React.FC = () => {
             
             {/* Left: Contact Info & Address */}
             <div>
-              <span className="badge badge-green" style={{ marginBottom: '0.75rem' }}>Sekretariat Pusat</span>
-              <h2 style={{ fontSize: '2rem', color: 'var(--color-blue)', marginBottom: '1rem' }}>
+              <span className="badge badge-emerald" style={{ marginBottom: '0.75rem' }}>Sekretariat Pusat</span>
+              <h2 style={{ fontSize: '2rem', color: 'var(--color-blue)', marginBottom: '1rem', fontWeight: 800 }}>
                 Silaturahmi & Konsultasi Pendidikan
               </h2>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.8', marginBottom: '2.5rem' }}>
@@ -81,50 +83,50 @@ export const ContactPage: React.FC = () => {
               </p>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '2.5rem' }}>
-                <div className="card" style={{ padding: '1.5rem', display: 'flex', gap: '1rem', alignItems: 'flex-start', background: '#ffffff', borderLeft: '4px solid var(--color-green)' }}>
+                <div className="card card-prestige" style={{ padding: '1.5rem', display: 'flex', gap: '1rem', alignItems: 'flex-start', background: '#ffffff', borderLeft: '5px solid var(--color-green)' }}>
                   <div style={{ background: 'var(--color-green-subtle)', color: 'var(--color-green-dark)', padding: '0.75rem', borderRadius: 'var(--radius-md)' }}>
                     <MapPin size={22} />
                   </div>
                   <div>
-                    <h4 style={{ fontSize: '1rem', marginBottom: '0.35rem', color: 'var(--color-blue)' }}>Lokasi Yayasan</h4>
+                    <h4 style={{ fontSize: '1rem', marginBottom: '0.35rem', color: 'var(--color-blue)', fontWeight: 700 }}>Lokasi Yayasan</h4>
                     <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.6 }}>
                       {config.address}
                     </p>
                   </div>
                 </div>
 
-                <div className="card" style={{ padding: '1.5rem', display: 'flex', gap: '1rem', alignItems: 'flex-start', background: '#ffffff', borderLeft: '4px solid var(--color-orange)' }}>
-                  <div style={{ background: 'var(--color-orange-subtle)', color: '#996e00', padding: '0.75rem', borderRadius: 'var(--radius-md)' }}>
+                <div className="card card-prestige" style={{ padding: '1.5rem', display: 'flex', gap: '1rem', alignItems: 'flex-start', background: '#ffffff', borderLeft: '5px solid var(--color-gold)' }}>
+                  <div style={{ background: 'var(--color-gold-subtle)', color: 'var(--color-gold-dark)', padding: '0.75rem', borderRadius: 'var(--radius-md)' }}>
                     <Phone size={22} />
                   </div>
                   <div>
-                    <h4 style={{ fontSize: '1rem', marginBottom: '0.35rem', color: 'var(--color-blue)' }}>Telepon & WhatsApp PSB</h4>
-                    <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', margin: 0 }}>
-                      WhatsApp PSB: {config.whatsapp}<br />
+                    <h4 style={{ fontSize: '1rem', marginBottom: '0.35rem', color: 'var(--color-blue)', fontWeight: 700 }}>Telepon & WhatsApp PSB</h4>
+                    <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.6 }}>
+                      WhatsApp PSB: <strong>{config.whatsapp}</strong><br />
                       Telepon Kantor: {config.phone}
                     </p>
                   </div>
                 </div>
 
-                <div className="card" style={{ padding: '1.5rem', display: 'flex', gap: '1rem', alignItems: 'flex-start', background: '#ffffff', borderLeft: '4px solid var(--color-green)' }}>
+                <div className="card card-prestige" style={{ padding: '1.5rem', display: 'flex', gap: '1rem', alignItems: 'flex-start', background: '#ffffff', borderLeft: '5px solid var(--color-green)' }}>
                   <div style={{ background: 'var(--color-green-subtle)', color: 'var(--color-green-dark)', padding: '0.75rem', borderRadius: 'var(--radius-md)' }}>
                     <Mail size={22} />
                   </div>
                   <div>
-                    <h4 style={{ fontSize: '1rem', marginBottom: '0.35rem', color: 'var(--color-blue)' }}>Email Sekretariat</h4>
+                    <h4 style={{ fontSize: '1rem', marginBottom: '0.35rem', color: 'var(--color-blue)', fontWeight: 700 }}>Email Sekretariat</h4>
                     <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', margin: 0 }}>
                       {config.email}
                     </p>
                   </div>
                 </div>
 
-                <div className="card" style={{ padding: '1.5rem', display: 'flex', gap: '1rem', alignItems: 'flex-start', background: '#ffffff', borderLeft: '4px solid var(--color-green)' }}>
-                  <div style={{ background: 'var(--color-green-subtle)', color: 'var(--color-green-dark)', padding: '0.75rem', borderRadius: 'var(--radius-md)' }}>
+                <div className="card card-prestige" style={{ padding: '1.5rem', display: 'flex', gap: '1rem', alignItems: 'flex-start', background: '#ffffff', borderLeft: '5px solid var(--color-blue)' }}>
+                  <div style={{ background: 'var(--color-blue-subtle)', color: 'var(--color-blue)', padding: '0.75rem', borderRadius: 'var(--radius-md)' }}>
                     <Clock size={22} />
                   </div>
                   <div>
-                    <h4 style={{ fontSize: '1rem', marginBottom: '0.35rem', color: 'var(--color-blue)' }}>Jam Layanan Administrasi</h4>
-                    <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', margin: 0 }}>
+                    <h4 style={{ fontSize: '1rem', marginBottom: '0.35rem', color: 'var(--color-blue)', fontWeight: 700 }}>Jam Layanan Administrasi</h4>
+                    <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.6 }}>
                       Senin - Sabtu: 08:00 - 16:30 WIB<br />
                       Ahad / Libur Nasional: Konfirmasi via WhatsApp
                     </p>
@@ -135,10 +137,10 @@ export const ContactPage: React.FC = () => {
 
             {/* Right: Message / Registration Form */}
             <div>
-              <div className="card" style={{ padding: '2.5rem', borderTop: '6px solid var(--color-green)', boxShadow: 'var(--shadow-md)', background: '#ffffff' }}>
+              <div className="card card-prestige" style={{ padding: '2.5rem', background: '#ffffff' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.5rem' }}>
                   <MessageSquare size={22} color="var(--color-green)" />
-                  <h3 style={{ fontSize: '1.45rem', color: 'var(--color-blue)', margin: 0 }}>
+                  <h3 style={{ fontSize: '1.45rem', color: 'var(--color-blue)', margin: 0, fontWeight: 800 }}>
                     Formulir Konsultasi & Pendaftaran
                   </h3>
                 </div>
@@ -147,7 +149,7 @@ export const ContactPage: React.FC = () => {
                 </p>
 
                 {success && (
-                  <div style={{ background: 'var(--color-green-subtle)', border: '1px solid var(--color-green)', color: 'var(--color-green-dark)', padding: '1rem', borderRadius: 'var(--radius-md)', marginBottom: '1.5rem', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <div style={{ background: 'var(--color-green-subtle)', border: '1px solid var(--color-green)', color: 'var(--color-green-dark)', padding: '1rem', borderRadius: 'var(--radius-md)', marginBottom: '1.5rem', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 600 }}>
                     <CheckCircle2 size={18} />
                     <span>Alhamdulillah, pesan/pendaftaran Anda telah kami terima dengan baik.</span>
                   </div>
@@ -183,7 +185,7 @@ export const ContactPage: React.FC = () => {
                       <input 
                         type="tel" 
                         className="form-input" 
-                        required
+                        required 
                         placeholder="0812xxxxxxx"
                         value={form.phone}
                         onChange={(e) => setForm({ ...form, phone: e.target.value })}
@@ -225,22 +227,22 @@ export const ContactPage: React.FC = () => {
                   <button 
                     type="submit" 
                     disabled={submitting} 
-                    className="btn btn-primary" 
-                    style={{ width: '100%', padding: '0.9rem', gap: '0.5rem', fontSize: '0.95rem' }}
+                    className="btn btn-gold" 
+                    style={{ width: '100%', padding: '0.95rem', gap: '0.5rem', fontSize: '1rem', fontWeight: 700 }}
                   >
                     <Send size={16} />
                     <span>{submitting ? 'Sedang Mengirim...' : 'Kirim Pendaftaran / Pesan'}</span>
                   </button>
                 </form>
 
-                <div style={{ marginTop: '1.5rem', padding: '1rem', borderRadius: 'var(--radius-md)', background: 'var(--color-orange-subtle)', border: '1px solid var(--color-orange-border)', textAlign: 'center' }}>
-                  <span style={{ fontSize: '0.8rem', color: '#996e00', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem' }}>
-                    <Heart size={14} color="#996e00" /> Rekening Donasi & Wakaf Yayasan GMQ:
+                <div style={{ marginTop: '1.5rem', padding: '1.25rem', borderRadius: 'var(--radius-lg)', background: 'linear-gradient(135deg, #fefae0 0%, #fff7d6 100%)', border: '1.5px solid var(--color-gold)', textAlign: 'center' }}>
+                  <span style={{ fontSize: '0.85rem', color: 'var(--color-gold-dark)', fontWeight: 800, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem' }}>
+                    <Heart size={15} color="var(--color-gold-dark)" /> Rekening Donasi & Wakaf Yayasan GMQ:
                   </span>
-                  <div style={{ fontSize: '0.9rem', color: 'var(--color-blue)', fontWeight: 800, marginTop: '0.25rem' }}>
-                    Bank Syariah Indonesia (BSI): 7123-456-789
+                  <div style={{ fontSize: '1.05rem', color: 'var(--color-blue)', fontWeight: 900, marginTop: '0.35rem', letterSpacing: '0.04em' }}>
+                    Bank Syariah Indonesia (BSI): 7188 9900 12
                   </div>
-                  <small style={{ color: 'var(--text-muted)', fontSize: '0.75rem' }}>a.n. Yayasan Griya Mahir Al-Qur'an</small>
+                  <small style={{ color: 'var(--text-muted)', fontSize: '0.8rem', fontWeight: 600 }}>a.n. Yayasan Griya Mahir Al-Qur'an</small>
                 </div>
               </div>
             </div>

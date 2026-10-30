@@ -35,34 +35,37 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
-      {/* Top Notification Strip: Lush Green Accent with Hadith / Tagline */}
+      {/* Top Notification Strip: Deep Emerald Silk Gradient with Gold Hadith & Phone */}
       <div style={{ 
-        background: 'var(--color-green-subtle)', 
-        color: 'var(--color-green-dark)', 
+        background: 'linear-gradient(90deg, #18410e 0%, #245d17 100%)', 
+        color: '#e8f5e5', 
         fontSize: '0.75rem', 
         padding: '0.45rem 0',
-        borderBottom: '1px solid var(--color-green-border)'
+        borderBottom: '1px solid rgba(250, 195, 0, 0.35)'
       }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--color-green-dark)', fontWeight: 600 }}>
-              <Phone size={13} color="var(--color-green)" />
-              Sekretariat: <strong>{config.phone}</strong>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#e8f5e5', fontWeight: 600 }}>
+              <Phone size={13} color="var(--color-gold)" />
+              Sekretariat GMQ: <strong style={{ color: 'var(--color-gold)' }}>{config.phone}</strong>
             </span>
-            <span style={{ display: 'none', color: 'var(--text-muted)' }} className="hide-on-mobile">
+            <span style={{ display: 'none', color: '#c5e2be' }} className="hide-on-mobile">
               {config.email}
             </span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <span style={{ color: 'var(--color-green-dark)', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-              <Sparkles size={12} color="var(--color-orange)" />
-              <em>"Sebaik-baik kalian adalah yang mempelajari Al-Qur'an dan mengajarkannya"</em>
+            <span style={{ color: '#ffffff', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+              <Sparkles size={12} color="var(--color-gold)" />
+              <span style={{ color: 'var(--color-gold)', fontStyle: 'italic', fontWeight: 700 }}>
+                "Sebaik-baik kalian adalah yang mempelajari Al-Qur'an dan mengajarkannya"
+              </span>
+              <small style={{ color: '#c5e2be' }}>(HR. Al-Bukhari)</small>
             </span>
           </div>
         </div>
       </div>
 
-      {/* Main Navigation Bar: Luminous Crisp White with Double Green Highlights */}
+      {/* Main Navigation Bar: Luminous Crisp White with 3.5px Green-Gold Highlight */}
       <nav style={{ 
         background: '#ffffff', 
         position: 'sticky', 
@@ -71,7 +74,7 @@ export const Navbar: React.FC = () => {
         boxShadow: '0 4px 20px -2px rgba(110, 168, 26, 0.12)',
         borderBottom: '3.5px solid var(--color-green)'
       }}>
-        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '74px' }}>
+        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '76px' }}>
           
           {/* Brand Logo with Official YGMQ Transparan Image */}
           <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', textDecoration: 'none' }}>
@@ -82,7 +85,7 @@ export const Navbar: React.FC = () => {
                 height: '56px', 
                 width: 'auto', 
                 objectFit: 'contain',
-                filter: 'drop-shadow(0 2px 8px rgba(110, 168, 26, 0.2))'
+                filter: 'drop-shadow(0 2px 8px rgba(110, 168, 26, 0.25))'
               }} 
             />
             <div>
@@ -129,21 +132,21 @@ export const Navbar: React.FC = () => {
             ))}
           </div>
 
-          {/* Action CTAs: Pendaftaran PSB & Admin Portal */}
+          {/* Action CTAs: Pendaftaran PSB (Gold) & Admin Portal (Emerald) */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }} className="desktop-menu">
             <Link 
               to="/kontak" 
-              className="btn btn-sm btn-orange"
+              className="btn btn-sm btn-gold"
               style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontWeight: 700 }}
             >
               <Heart size={13} />
-              <span>Daftar / Infaq</span>
+              <span>Daftar PSB / Infaq</span>
             </Link>
 
             <Link 
               to="/admin" 
               className="btn btn-sm btn-primary"
-              style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}
+              style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontWeight: 600 }}
             >
               <Lock size={13} />
               <span>{isAuthenticated ? `CMS: ${user?.full_name?.split(' ')[0]}` : 'Portal Asatidz'}</span>
@@ -169,7 +172,7 @@ export const Navbar: React.FC = () => {
           </button>
         </div>
 
-        {/* Mobile Dropdown Menu (Clean White & Green) */}
+        {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
           <div style={{
             background: '#ffffff',
@@ -204,8 +207,8 @@ export const Navbar: React.FC = () => {
               <Link
                 to="/kontak"
                 onClick={() => setMobileMenuOpen(false)}
-                className="btn btn-orange"
-                style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
+                className="btn btn-gold"
+                style={{ width: '100%', display: 'flex', justifyContent: 'center', fontWeight: 700 }}
               >
                 <Heart size={15} />
                 <span>Pendaftaran Santri Baru (PSB)</span>

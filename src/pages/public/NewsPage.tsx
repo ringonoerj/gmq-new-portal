@@ -6,9 +6,9 @@ import {
   ArrowRight, 
   Search, 
   Filter, 
-  Eye,
-  Sparkles,
-  BookOpen
+  Eye, 
+  Sparkles, 
+  BookOpen 
 } from 'lucide-react';
 import { usePosts } from '../../hooks/usePosts';
 
@@ -28,21 +28,23 @@ export const NewsPage: React.FC = () => {
 
   return (
     <div>
-      {/* Header Banner */}
+      {/* Header Banner: Prestigious Emerald & Gold Gradient */}
       <section style={{ 
-        background: 'linear-gradient(135deg, #ffffff 0%, #f0f8ea 45%, #e1f2d3 100%)',
+        background: 'var(--gradient-green-hero)',
         color: 'var(--text-main)',
-        padding: '5rem 0 4rem',
-        borderBottom: '3.5px solid var(--color-green)'
+        padding: '5.5rem 0 4.5rem',
+        borderBottom: '4px solid var(--color-green)',
+        position: 'relative',
+        overflow: 'hidden'
       }}>
-        <div className="container">
-          <span className="badge badge-green" style={{ marginBottom: '1rem' }}>
-            <Sparkles size={13} color="var(--color-orange)" /> Kabar Santri & Agenda
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          <span className="badge badge-emerald" style={{ marginBottom: '1rem' }}>
+            <Sparkles size={13} color="var(--color-gold)" /> Kabar Santri & Agenda
           </span>
-          <h1 style={{ color: 'var(--color-blue)', fontSize: '2.65rem', marginBottom: '1rem', fontWeight: 800 }}>
+          <h1 style={{ color: 'var(--color-blue)', fontSize: '2.85rem', marginBottom: '1rem', fontWeight: 800 }}>
             Kabar Santri & Wawasan Qur'ani GMQ
           </h1>
-          <p style={{ color: 'var(--text-muted)', fontSize: '1.15rem', maxWidth: '780px', lineHeight: 1.7 }}>
+          <p style={{ color: 'var(--text-muted)', fontSize: '1.15rem', maxWidth: '780px', lineHeight: 1.75 }}>
             Pusat rilis berita resmi Penerimaan Santri Baru (PSB), wisuda tahfidz 30 juz, liputan dauroh sanad, serta tulisan inspiratif pembinaan akhlak Al-Qur'an.
           </p>
         </div>
@@ -53,7 +55,7 @@ export const NewsPage: React.FC = () => {
         <div className="container">
           
           {/* Filter & Search Bar */}
-          <div className="card" style={{ padding: '1.5rem', marginBottom: '3rem', borderTop: '3px solid var(--color-green)' }}>
+          <div className="card card-prestige" style={{ padding: '1.5rem', marginBottom: '3rem', background: '#ffffff' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1.25rem' }}>
               
               {/* Category Pills */}
@@ -66,7 +68,7 @@ export const NewsPage: React.FC = () => {
                     key={cat}
                     onClick={() => setSelectedCategory(cat)}
                     style={{
-                      background: selectedCategory === cat ? 'var(--color-green)' : '#ffffff',
+                      background: selectedCategory === cat ? 'linear-gradient(135deg, var(--color-green) 0%, #558314 100%)' : '#ffffff',
                       color: selectedCategory === cat ? '#ffffff' : 'var(--text-main)',
                       fontWeight: selectedCategory === cat ? 700 : 500,
                       padding: '0.5rem 1.25rem',
@@ -107,7 +109,7 @@ export const NewsPage: React.FC = () => {
             marginBottom: '4rem'
           }}>
             {filteredPosts.map((post) => (
-              <article key={post.id} className="card" style={{ overflow: 'hidden', display: 'flex', flexDirection: 'column', borderTop: '4px solid var(--color-green)', background: '#ffffff' }}>
+              <article key={post.id} className="card card-prestige" style={{ overflow: 'hidden', display: 'flex', flexDirection: 'column', background: '#ffffff' }}>
                 <Link to={`/berita/${post.slug}`}>
                   <img 
                     src={post.featured_image} 
@@ -118,14 +120,14 @@ export const NewsPage: React.FC = () => {
                 </Link>
                 <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.85rem' }}>
-                    <span className="badge badge-green">{post.category}</span>
+                    <span className="badge badge-emerald">{post.category}</span>
                     <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
                       <Calendar size={13} />
                       {new Date(post.created_at).toLocaleDateString('id-ID', { month: 'short', day: 'numeric', year: 'numeric' })}
                     </span>
                   </div>
 
-                  <h2 style={{ fontSize: '1.25rem', marginBottom: '0.85rem', color: 'var(--color-blue)', lineHeight: 1.4 }}>
+                  <h2 style={{ fontSize: '1.25rem', marginBottom: '0.85rem', color: 'var(--color-blue)', lineHeight: 1.4, fontWeight: 800 }}>
                     <Link to={`/berita/${post.slug}`} style={{ color: 'inherit' }}>
                       {post.title}
                     </Link>

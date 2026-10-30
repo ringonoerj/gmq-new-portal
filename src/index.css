@@ -1,11 +1,9 @@
 /* ==========================================================================
-   GMQ PORTAL DESIGN SYSTEM
+   GMQ PORTAL DESIGN SYSTEM - PRESTIGE ISLAMIC EDITION
    Dominant Palette:
-   - White: Clean, Luminous, Modern Backdrop (#FFFFFF / #FBFDF9)
-   - Green: #6EA81A (rgb 110, 168, 26) - Primary Brand, Growth, Innovation, Freshness
-   Supporting Colors:
-   - Orange: #FAC300 (rgb 250, 195, 0) - Dynamic Highlights, CTA Pills, Energy
-   - Blue:   #204D74 (rgb 33, 77, 116)  - Deep Corporate Structure, Typography, Trust
+   - Green (60% Dominant): #6EA81A, #245E17 (Emerald), #173D0E (Deep Silk Green)
+   - Gold / Orange (25% Accent): #FAC300, #D6A500 (Radiant Gold Trims & CTA)
+   - Blue (15% Anchor): #204D74, #133451 (Sapphire Typography & Trust Structure)
    ========================================================================== */
 
 :root {
@@ -15,30 +13,35 @@
   --color-green-light: #84c721;
   --color-green-subtle: #f2f9eb;
   --color-green-border: rgba(110, 168, 26, 0.25);
+  --color-green-deep: #1d4612;
+  --color-green-emerald: #245e17;
 
   --color-white: #ffffff;
   --color-white-soft: #fbfdf9;
   --color-white-muted: #f4f7f2;
 
+  --color-gold: #fac300;
+  --color-gold-dark: #d6a500;
+  --color-gold-subtle: #fefae0;
   --color-orange: #fac300;
-  --color-orange-dark: #e0af00;
+  --color-orange-dark: #d6a500;
   --color-orange-subtle: #fffbe6;
   --color-orange-border: rgba(250, 195, 0, 0.35);
 
   --color-blue: #204d74;
-  --color-blue-dark: #15344f;
+  --color-blue-dark: #133451;
   --color-blue-light: #2c6699;
   --color-blue-subtle: #edf4f9;
 
-  /* Primary Semantic Aliases (Dominant: Green & White) */
+  /* Primary Semantic Aliases */
   --color-primary: var(--color-green);
-  --color-primary-dark: var(--color-green-dark);
+  --color-primary-dark: var(--color-green-emerald);
   --color-primary-light: var(--color-green-light);
   --color-primary-subtle: var(--color-green-subtle);
 
-  --color-accent: var(--color-orange);
-  --color-accent-dark: var(--color-orange-dark);
-  --color-accent-subtle: var(--color-orange-subtle);
+  --color-accent: var(--color-gold);
+  --color-accent-dark: var(--color-gold-dark);
+  --color-accent-subtle: var(--color-gold-subtle);
 
   --color-corporate: var(--color-blue);
   --color-corporate-dark: var(--color-blue-dark);
@@ -50,8 +53,8 @@
   /* Surfaces & Backgrounds */
   --bg-page: #fbfdf9;
   --bg-card: #ffffff;
-  --bg-glass: rgba(255, 255, 255, 0.92);
-  --border-subtle: #e5ece0;
+  --bg-glass: rgba(255, 255, 255, 0.94);
+  --border-subtle: #e2ecdc;
   --border-focus: var(--color-green);
 
   /* Typography */
@@ -62,9 +65,10 @@
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(110, 168, 26, 0.05);
-  --shadow-md: 0 4px 12px -2px rgba(110, 168, 26, 0.08), 0 2px 6px -1px rgba(32, 77, 116, 0.04);
-  --shadow-lg: 0 12px 24px -4px rgba(110, 168, 26, 0.12), 0 4px 12px -2px rgba(32, 77, 116, 0.06);
+  --shadow-sm: 0 1px 3px 0 rgba(110, 168, 26, 0.06);
+  --shadow-md: 0 4px 14px -2px rgba(110, 168, 26, 0.1), 0 2px 6px -1px rgba(32, 77, 116, 0.05);
+  --shadow-lg: 0 14px 28px -4px rgba(110, 168, 26, 0.14), 0 4px 12px -2px rgba(32, 77, 116, 0.08);
+  --shadow-prestige: 0 14px 34px rgba(110, 168, 26, 0.16);
   --shadow-glow-green: 0 8px 24px rgba(110, 168, 26, 0.35);
   --shadow-glow-orange: 0 8px 24px rgba(250, 195, 0, 0.35);
   --shadow-glow-blue: 0 8px 24px rgba(32, 77, 116, 0.25);
@@ -73,14 +77,16 @@
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
+  --radius-xl: 20px;
   --radius-full: 9999px;
 
-  /* Enhanced Green Themes */
-  --gradient-green-hero: linear-gradient(135deg, #ffffff 0%, #f1f8ea 45%, #e3f2d5 100%);
-  --gradient-green-card: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(242,249,235,0.85));
+  /* Enhanced Green & Prestige Gradients */
+  --gradient-green-hero: linear-gradient(135deg, #ffffff 0%, #f2faee 45%, #e3f5dc 100%);
+  --gradient-green-card: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(242,249,235,0.9));
   --gradient-green-accent: linear-gradient(135deg, var(--color-green), #84c721);
   --gradient-green-dark: linear-gradient(135deg, #18360d, #255015);
-  --radius-full: 9999px;
+  --gradient-green-silk: linear-gradient(180deg, #173d0e 0%, #112d0a 100%);
+  --gradient-gold: linear-gradient(135deg, #fac300 0%, #d6a500 100%);
 
   /* Transitions */
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -129,7 +135,7 @@ button, input, textarea, select {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-  color: var(--color-blue-dark);
+  color: var(--color-blue);
   font-weight: 700;
   line-height: 1.25;
 }
@@ -149,30 +155,31 @@ h1, h2, h3, h4, h5, h6 {
   transition: all var(--transition-fast);
 }
 
-/* Primary Button is now Fresh Green (#6EA81A) */
+/* Primary Button: Fresh Green */
 .btn-primary, .btn-green {
-  background-color: var(--color-green);
+  background: linear-gradient(135deg, var(--color-green) 0%, #588e14 100%);
   color: #ffffff;
 }
 .btn-primary:hover, .btn-green:hover {
-  background-color: var(--color-green-dark);
+  background: linear-gradient(135deg, #588e14 0%, #46730e 100%);
   transform: translateY(-1px);
   box-shadow: var(--shadow-glow-green);
 }
 
-/* Accent Button is Warm Orange (#FAC300) */
-.btn-orange, .btn-accent {
-  background-color: var(--color-orange);
+/* Radiant Gold Button */
+.btn-gold, .btn-orange, .btn-accent {
+  background: linear-gradient(135deg, #fac300 0%, #e0af00 100%);
   color: var(--color-blue-dark);
   font-weight: 700;
+  box-shadow: 0 4px 12px rgba(250, 195, 0, 0.25);
 }
-.btn-orange:hover, .btn-accent:hover {
-  background-color: var(--color-orange-dark);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-glow-orange);
+.btn-gold:hover, .btn-orange:hover, .btn-accent:hover {
+  background: linear-gradient(135deg, #ffd026 0%, #d6a500 100%);
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 16px rgba(250, 195, 0, 0.35);
 }
 
-/* Corporate Secondary Button is Deep Blue (#204D74) */
+/* Corporate Secondary Button: Sapphire Blue */
 .btn-blue, .btn-corporate {
   background-color: var(--color-blue);
   color: #ffffff;
@@ -199,7 +206,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.75rem;
 }
 
-/* Cards & Glassmorphism (Clean White) */
+/* Cards & Glassmorphism */
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
@@ -213,11 +220,23 @@ h1, h2, h3, h4, h5, h6 {
   border-color: rgba(110, 168, 26, 0.35);
 }
 
+/* Prestige Card: Multi-tone accent border and floating shadow */
+.card-prestige {
+  border-top: 4px solid var(--color-green) !important;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+}
+.card-prestige:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-prestige);
+  border-color: var(--color-green);
+}
+
 .card-glass {
   background: var(--bg-glass);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.85);
   box-shadow: 0 10px 30px -5px rgba(110, 168, 26, 0.08);
 }
 
@@ -268,16 +287,22 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid var(--color-green-border);
 }
 
-.badge-orange {
-  background: var(--color-orange-subtle);
+.badge-emerald {
+  background: rgba(36, 94, 23, 0.12);
+  color: var(--color-green-emerald);
+  border: 1px solid rgba(36, 94, 23, 0.3);
+}
+
+.badge-orange, .badge-gold {
+  background: var(--color-gold-subtle);
   color: #996e00;
-  border: 1px solid var(--color-orange-border);
+  border: 1px solid rgba(250, 195, 0, 0.45);
 }
 
 .badge-blue {
   background: var(--color-blue-subtle);
   color: var(--color-blue);
-  border: 1px solid rgba(32, 77, 116, 0.15);
+  border: 1px solid rgba(32, 77, 116, 0.2);
 }
 
 /* Animations */
