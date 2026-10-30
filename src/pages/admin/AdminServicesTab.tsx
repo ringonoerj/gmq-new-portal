@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import type { ServiceItem } from '../../types';
+import defaultServiceImage from '../../assets/sample_image_1.jpeg';
 
 interface AdminServicesTabProps {
   services: ServiceItem[];
@@ -84,7 +85,7 @@ export const AdminServicesTab: React.FC<AdminServicesTabProps> = ({
       short_desc: '',
       full_desc: '',
       featuresText: 'Target Hafalan 30 Juz Mutqin\nKurikulum Diknas & Diniyyah Terpadu\nPengajar Pemegang Sanad Riwayat Hafs\nAsrama Berkarakter Qur\'ani',
-      image_url: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1000&q=80',
+      image_url: defaultServiceImage,
       video_url: ''
     });
     setIsModalOpen(true);
@@ -408,7 +409,7 @@ export const AdminServicesTab: React.FC<AdminServicesTabProps> = ({
                 <input 
                   type="url" 
                   className="form-input" 
-                  placeholder="https://images.unsplash.com/..."
+                  placeholder="/src/assets/sample_image_1.jpeg atau URL gambar..."
                   value={form.image_url}
                   onChange={(e) => setForm({ ...form, image_url: e.target.value })}
                 />

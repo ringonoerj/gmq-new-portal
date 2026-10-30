@@ -3,8 +3,8 @@ import { initialPosts, initialServices, initialInquiries, initialSiteConfig } fr
 import { supabase, isSupabaseConfigured } from './supabase';
 
 const STORAGE_KEYS = {
-  POSTS: 'gmq_portal_posts_v2',
-  SERVICES: 'gmq_portal_services_v2',
+  POSTS: 'gmq_portal_posts_v3',
+  SERVICES: 'gmq_portal_services_v3',
   INQUIRIES: 'gmq_portal_inquiries_v2',
   CONFIG: 'gmq_portal_config_v2'
 };
@@ -13,7 +13,7 @@ const STORAGE_KEYS = {
 function getLocalItem<T>(key: string, fallback: T): T {
   try {
     const saved = localStorage.getItem(key);
-    if (!saved) {
+    if (!saved || saved.includes('unsplash.com')) {
       localStorage.setItem(key, JSON.stringify(fallback));
       return fallback;
     }

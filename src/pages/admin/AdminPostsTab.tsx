@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import type { Post } from '../../types';
+import defaultPostImage from '../../assets/sample_image_6.jpeg';
 
 interface AdminPostsTabProps {
   posts: Post[];
@@ -84,7 +85,7 @@ export const AdminPostsTab: React.FC<AdminPostsTabProps> = ({
       author: 'Humas YGMQ',
       excerpt: '',
       content: '',
-      featured_image: 'https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=1200&q=80',
+      featured_image: defaultPostImage,
       video_url: '',
       status: 'published'
     });
@@ -132,7 +133,7 @@ export const AdminPostsTab: React.FC<AdminPostsTabProps> = ({
           author: form.author,
           excerpt: form.excerpt,
           content: form.content,
-          featured_image: form.featured_image || 'https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=1200&q=80',
+          featured_image: form.featured_image || defaultPostImage,
           video_url: form.video_url || undefined,
           status: form.status,
           published_at: new Date().toISOString()
@@ -464,7 +465,7 @@ export const AdminPostsTab: React.FC<AdminPostsTabProps> = ({
                   type="url" 
                   className="form-input" 
                   required 
-                  placeholder="https://images.unsplash.com/..."
+                  placeholder="/src/assets/sample_image_6.jpeg atau URL gambar..."
                   value={form.featured_image}
                   onChange={(e) => setForm({ ...form, featured_image: e.target.value })}
                 />

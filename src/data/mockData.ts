@@ -1,4 +1,12 @@
 import type { Post, ServiceItem, Inquiry, SiteConfig, UserProfile } from '../types';
+import sample1 from '../assets/sample_image_1.jpeg';
+import sample2 from '../assets/sample_image_2.jpeg';
+import sample3 from '../assets/sample_image_3.jpeg';
+import sample4 from '../assets/sample_image_4.jpeg';
+import sample5 from '../assets/sample_image_5.jpg';
+import sample6 from '../assets/sample_image_6.jpeg';
+import sample7 from '../assets/sample_image_7.jpeg';
+import sample8 from '../assets/sample_image_8.jpeg';
 
 export const initialSiteConfig: SiteConfig = {
   site_name: "Yayasan Griya Mahir Al-Qur'an (GMQ)",
@@ -21,7 +29,7 @@ export const mockUsers: UserProfile[] = [
     email: 'admin@griyamahirquran.or.id',
     full_name: 'Ustadz Ahmad Fauzi, Lc., M.Ag. (Mudir Yayasan)',
     role: 'superadmin',
-    avatar_url: 'https://images.unsplash.com/photo-1544717305-2782549b5136?w=150&auto=format&fit=crop&q=80',
+    avatar_url: sample2,
     created_at: '2026-01-10T08:00:00Z'
   },
   {
@@ -29,7 +37,7 @@ export const mockUsers: UserProfile[] = [
     email: 'humas@griyamahirquran.or.id',
     full_name: 'Ustadzah Nurul Hidayah, S.Pd.I. (Divisi Humas & Media)',
     role: 'editor',
-    avatar_url: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80',
+    avatar_url: sample3,
     created_at: '2026-02-01T09:30:00Z'
   }
 ];
@@ -49,7 +57,7 @@ export const initialServices: ServiceItem[] = [
       'Ijazah Formal Tingkat Dasar Terakreditasi',
       'Rasio Guru dan Santri Maksimal 1:12 untuk Talaqqi Optimal'
     ],
-    image_url: 'https://images.unsplash.com/photo-1584281722572-c5dfd46f5647?w=800&auto=format&fit=crop&q=80',
+    image_url: sample1,
     video_url: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
   },
   {
@@ -66,7 +74,7 @@ export const initialServices: ServiceItem[] = [
       "Bahasa Arab & Inggris sebagai Pengantar Keseharian",
       "Persiapan Beasiswa Timur Tengah & Perguruan Tinggi Negeri"
     ],
-    image_url: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=800&auto=format&fit=crop&q=80',
+    image_url: sample2,
     video_url: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
   },
   {
@@ -83,7 +91,7 @@ export const initialServices: ServiceItem[] = [
       "Tersedia Kelas Tatap Muka & Online Interaktif",
       "Ujian Kenaikan Tingkat & Sertifikat Kemahiran Tajwid"
     ],
-    image_url: 'https://images.unsplash.com/photo-1609599006353-e629aaabfeae?w=800&auto=format&fit=crop&q=80'
+    image_url: sample3
   },
   {
     id: 'unit-4',
@@ -99,7 +107,7 @@ export const initialServices: ServiceItem[] = [
       "Penanaman Karakter Adab Sehari-hari & Doa Harian",
       "Konsultasi Parenting Qur'ani untuk Orang Tua"
     ],
-    image_url: 'https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&auto=format&fit=crop&q=80'
+    image_url: sample4
   },
   {
     id: 'unit-5',
@@ -115,7 +123,7 @@ export const initialServices: ServiceItem[] = [
       "Metodologi Pengajaran Al-Qur'an Standar GMQ",
       "Dukungan Penyaluran Guru Al-Qur'an ke Berbagai Lembaga"
     ],
-    image_url: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&auto=format&fit=crop&q=80'
+    image_url: sample5
   }
 ];
 
@@ -140,7 +148,7 @@ export const initialPosts: Post[] = [
 Untuk informasi persyaratan pendaftaran, jadwal tes seleksi, dan biaya infaq pendidikan, bapak/ibu dapat mengunduh brosur digital atau menghubungi panitia PSB via nomor sekretariat yayasan.`,
     category: 'Agenda & PSB',
     author: 'Panitia PSB GMQ',
-    featured_image: 'https://images.unsplash.com/photo-1584281722572-c5dfd46f5647?w=800&auto=format&fit=crop&q=80',
+    featured_image: sample6,
     status: 'published',
     views_count: 842,
     created_at: '2026-03-20T08:00:00Z',
@@ -158,7 +166,7 @@ Mudir Yayasan, Ustadz Ahmad Fauzi, Lc., M.Ag., dalam sambutannya berpesan agar p
 Acara wisuda ditutup dengan pemasangan mahkota kehormatan secara simbolis kepada para orang tua santri, diiringi doa bersama untuk keselamatan dan keberkahan bangsa.`,
     category: 'Berita Yayasan',
     author: 'Humas GMQ',
-    featured_image: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=800&auto=format&fit=crop&q=80',
+    featured_image: sample7,
     status: 'published',
     views_count: 1250,
     created_at: '2026-03-18T10:30:00Z',
@@ -178,7 +186,7 @@ Acara wisuda ditutup dengan pemasangan mahkota kehormatan secara simbolis kepada
 4. **Membaca dalam Shalat:** Gunakan ayat-ayat yang baru dihafal dalam shalat rawatib dan shalat malam (qiyamullail).`,
     category: 'Wawasan Qurani',
     author: 'Ustadz Ahmad Fauzi, Lc.',
-    featured_image: 'https://images.unsplash.com/photo-1609599006353-e629aaabfeae?w=800&auto=format&fit=crop&q=80',
+    featured_image: sample8,
     status: 'published',
     views_count: 670,
     created_at: '2026-03-12T14:15:00Z',
@@ -192,7 +200,7 @@ Acara wisuda ditutup dengan pemasangan mahkota kehormatan secara simbolis kepada
     content: `Sebanyak 80 peserta dari berbagai kota di Indonesia mengikuti pembukaan Dauroh Matan Al-Jazariyyah yang diselenggarakan oleh Divisi Pendidikan Non-Formal GMQ. Program ini menitikberatkan pada ketepatan makharijul huruf, sifat huruf, ahkamul mad, serta kaidah waqaf wal ibtida'.`,
     category: 'Program Dauroh',
     author: 'Divisi Sanad GMQ',
-    featured_image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&auto=format&fit=crop&q=80',
+    featured_image: sample1,
     status: 'published',
     views_count: 420,
     created_at: '2026-03-05T09:00:00Z',

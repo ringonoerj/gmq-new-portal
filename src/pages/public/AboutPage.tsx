@@ -11,6 +11,7 @@ import {
   HeartHandshake
 } from 'lucide-react';
 import logoImg from '../../assets/Logo_YGMQ_Transparan.png';
+import sampleAboutKegiatan from '../../assets/sample_image_3.jpeg';
 
 export const AboutPage: React.FC = () => {
   return (
@@ -92,7 +93,7 @@ export const AboutPage: React.FC = () => {
                 border: '3px solid var(--color-green-border)'
               }}>
                 <img 
-                  src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?w=900&auto=format&fit=crop&q=80" 
+                  src={sampleAboutKegiatan} 
                   alt="Kegiatan Belajar Santri GMQ" 
                   style={{ width: '100%', height: '380px', objectFit: 'cover', display: 'block' }}
                 />

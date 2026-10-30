@@ -20,6 +20,7 @@ import { usePosts } from '../../hooks/usePosts';
 import { useInquiries } from '../../hooks/useInquiries';
 import type { ServiceItem } from '../../types';
 import logoImg from '../../assets/Logo_YGMQ_Transparan.png';
+import sampleHomeAbout from '../../assets/sample_image_2.jpeg';
 
 export const HomePage: React.FC = () => {
   const { services } = useServices();
@@ -153,7 +154,7 @@ export const HomePage: React.FC = () => {
                 </div>
                 <div style={{ position: 'relative', borderRadius: 'var(--radius-md)', overflow: 'hidden' }}>
                   <img 
-                    src="https://images.unsplash.com/photo-1584281722572-c5dfd46f5647?w=800&auto=format&fit=crop&q=80" 
+                    src={sampleHomeAbout} 
                     alt="Santri Griya Mahir Al-Quran"
                     style={{ width: '100%', height: '320px', objectFit: 'cover', display: 'block' }} 
                   />
